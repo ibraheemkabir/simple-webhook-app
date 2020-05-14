@@ -3,7 +3,6 @@ export const getTransaction = async (token) => {
         "serviceName":"slyde_pay_ghs",
         "params":[`${token}`],
         "transactionId":`${token}`,
-        "serviceName":"slyde_pay_ghs",
         "command":"getTransactionById"
     }
     const response = await fetch('https://kbe.ferrumnetwork.io/api/localtxhook/newRemoteFiatTransaction', {
@@ -20,6 +19,5 @@ export const getTransaction = async (token) => {
         referrerPolicy: 'no-referrer',
         body: JSON.stringify(data)
     });
-    console.log(response.status,'00----')
     return response.status;
 }

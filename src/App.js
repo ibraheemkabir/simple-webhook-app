@@ -1,5 +1,4 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.scss';
 import {getTransaction} from './Api';
 class App extends React.Component{
@@ -16,13 +15,13 @@ class App extends React.Component{
     let params = new URLSearchParams(search);
     let token = params.get('pay_token');
     let status = params.get('status');
-    if(status!=0){
+    if(status!==0){
       this.setState({canceled:true,failure:true,loading:false})
     }else{
       const response = await getTransaction(token);
-      if(response==200){
+      if(response===200){
         this.setState({success:true,loading:false})
-        window.location.replace('http://deeplink.me/firstkudi.com')
+        window.location.replace('exp://192.168.0.144:19000')
       }else{
         alert(response)
         this.setState({failure:true,loading:false})
@@ -43,7 +42,9 @@ class App extends React.Component{
               <circle id="successAnimationCircle" cx="35" cy="35" r="24" stroke="#979797" stroke-width="2" stroke-linecap="round" fill="none"/>
               <polyline id="successAnimationCheck" stroke="#979797" stroke-width="2" points="23 34 34 43 47 27" fill="none"/>
             </svg>
-            <p class="success">Transaction Processed Successfully... Redirecting</p>
+            <p class="success">Transaction Processed Successfully...</p>
+            <span class="right-arrow"></span>
+            <a href="kudi://"><p><span>Back to App</span><span class="right-arrow"></span></p></a>
             </>
           }
           {  failure  &&
@@ -56,6 +57,8 @@ class App extends React.Component{
             </svg>
             </div>
               <p class="error">Transaction Not Completed... Redirecting</p>
+              <a href="kudi://"><p><span>Back to App</span><span class="right-arrow"></span></p></a>
+             
             </>
           }
           {

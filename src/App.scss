@@ -16,6 +16,27 @@ $check-length: 36px;
   }
 }
 
+
+.long-arrow-right{
+  display: block;
+  margin: 30px auto;
+  width: 25px;
+  height: 25px;
+  border-top: 2px solid #000;
+  border-left: 2px solid #000;
+}
+
+.long-arrow-right::after{
+  content: "";
+  display: block;
+  width: 2px;
+  height: 45px;
+  background-color: black;
+  transform: rotate(-45deg) translate(15px, 4px);
+  left: 0;
+  top: 0;
+}
+
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
@@ -176,9 +197,11 @@ p {
   font-size: 0.85em;
   &.success {
     color: #73AF55;
+    margin-bottom: 40px;
   }
   &.error {
     color: #D06079;
+    margin-bottom: 40px;
   }
 }
 
@@ -221,4 +244,46 @@ p {
 
 .cross{
   width: 60px;
+}
+
+.right-arrow {
+  display: inline-block;
+    width: 50px;
+    height: 4px;
+    background-color: #101010;
+    position: relative;
+    margin: 90px;
+    margin-right: 0px;
+    margin-top: 0px;
+    margin-left: 5px;
+    margin-bottom: 3px;
+}
+
+a{
+  text-decoration: none;
+  color: white;
+}
+
+.right-arrow::after {
+  content: "";
+  display: inline-block;
+  width: 25px;
+  height: 4px;
+  background-color: #101010;
+  position: absolute;
+  transform: rotate(45deg);
+  right: -7px;
+  bottom: 9px;
+}
+
+.right-arrow::before {
+  content: "";
+  display: inline-block;
+  width: 25px;
+  height: 4px;
+  background-color: #101010;
+  position: absolute;
+  transform: rotate(-45deg);
+  right: -7px;
+  top: 9px;
 }
